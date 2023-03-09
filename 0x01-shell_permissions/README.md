@@ -1,2 +1,2 @@
-# Shell Permission Tasks
-This is an explanation of each tash on my shell permission tasks
+# Directory Info
+This directory contains all the task files of Shell Permission project
