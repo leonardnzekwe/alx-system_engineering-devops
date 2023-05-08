@@ -7,7 +7,7 @@ I'm A student of ALX SE.
 I'm the creator of the Repository.
 
 ## Contents
-Shell, basics
-Shell, permissions
-Shell, I/O Redirections and filters
-Shell, init files, variables and expansions
+- Shell, basics
+- Shell, permissions
+- Shell, I/O Redirections and filters
+- Shell, init files, variables and expansions
