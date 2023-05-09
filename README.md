@@ -1,5 +1,5 @@
 # About Repo
-This is my AlX Software Engineering Project Repository For Developmet Operations
+This is my AlX Software Engineering DevOps Repo
 
 ## Repo Contents
 - Shell, basics
