@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # write a Bash script that displays lines containing the bash word
 # shellcheck disable=SC2009
-cmd=$(./1-list_your_processes | grep base)
+cmd=$(./1-list_your_processes | grep bash)
 echo "$cmd"
