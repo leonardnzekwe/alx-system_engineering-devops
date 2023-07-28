@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# 100-process_and_pid_file
+
+file="/var/run/myscript.pid"
+
+function sig_term_handler
+{
+	echo "I hate the kill command"
+	if [ -e $file ]; then
+		rm "$file"
+	fi
+	exit 0
+}
+
+function sig_int_handler
+{
+	echo "Y U no love me?!"
+	exit 0
+}
+
+trap sig_int_handler SIGINT
+trap sig_term_handler SIGQUIT SIGTERM
+
+echo $$ > "$file"
+
+while true; do
+	echo "To infinity and beyond"
+	sleep 3
+done
