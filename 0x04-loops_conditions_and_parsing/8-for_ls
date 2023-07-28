@@ -3,7 +3,7 @@
 # The content of the current directory
 # In a list format
 # Where only the part of the name after the first dash is displayed
-list=$(find . -type f -name '*-*' -exec basename {} \; | cut -d '-' -f2)
-for item in $list; do
+for file in *[!.-]*-*; do
+	item="${file#*-}"
 	echo "$item"
 done
