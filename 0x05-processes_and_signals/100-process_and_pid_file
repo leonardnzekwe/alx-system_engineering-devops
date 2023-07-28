@@ -15,6 +15,9 @@ function sig_term_handler
 function sig_int_handler
 {
 	echo "Y U no love me?!"
+	if [ -e $file ]; then
+		rm "$file"
+	fi
 	exit 0
 }
 
