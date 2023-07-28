@@ -15,7 +15,9 @@ function sig_term_handler
 function sig_int_handler
 {
 	echo "Y U no love me?!"
-	rm "$file"
+	if [ -e $file ]; then
+		rm "$file"
+	fi
 	exit 0
 }
 
@@ -26,5 +28,4 @@ echo $$ > "$file"
 
 while true; do
 	echo "To infinity and beyond"
-	sleep 3
 done
