@@ -6,3 +6,5 @@ This is my AlX Software Engineering DevOps Repo
 - Shell, permissions
 - Shell, I/O Redirections and filters
 - Shell, init files, variables and expansions
+- Shell, Loops, conditions and parsing
+- Shell, Processes and signals
