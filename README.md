@@ -9,3 +9,4 @@ This is my AlX Software Engineering DevOps Repo
 - Shell, Loops, conditions and parsing
 - Shell, Processes and signals
 - Shell, Regular expression
+- Networking basics
