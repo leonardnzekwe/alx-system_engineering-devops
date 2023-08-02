@@ -8,5 +8,5 @@ This is my AlX Software Engineering DevOps Repo
 - Shell, init files, variables and expansions
 - Shell, Loops, conditions and parsing
 - Shell, Processes and signals
-- Shell, Regular expression
+- Regular expressions
 - Networking basics
