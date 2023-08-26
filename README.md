@@ -10,3 +10,4 @@ This is my AlX Software Engineering DevOps Repo
 - Shell, Processes and signals
 - Regular expressions
 - Networking basics
+- Web Infrastructure Design
