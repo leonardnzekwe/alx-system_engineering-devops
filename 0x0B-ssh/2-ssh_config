@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Client configuration file: specifies a default identity file and no passwords required
+Host 3.85.136.177
+	IdentityFile ~/.ssh/school
+	PasswordAuthentication no
