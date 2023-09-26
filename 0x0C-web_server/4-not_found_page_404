@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Install nginx web server
+
+# Update the package list
+sudo apt-get update -y
+
+# Install Nginx
+sudo apt-get install nginx -y
+
+# Overwrite the default contents of nginx index page
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
+
+# Update the default configuration file for Nginx 301 redirection
+config_301="location /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+sudo sed -i "/server_name _;/a $config_301" /etc/nginx/sites-available/default
+
+# Create custom 404 page
+sudo sh -c 'echo "Ceci n'\''est pas une page\n" > /var/www/html/custom_404.html'
+
+# Update the default configuration file for Nginx 404 handling
+config_404="error_page 404 /custom_404.html;\n"
+sudo sed -i "/server_name _;/a $config_404" /etc/nginx/sites-available/default
+
+# Reload Nginx service
+sudo service nginx start

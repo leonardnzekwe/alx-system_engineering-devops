@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Install nginx web server and update it's default config file
+
+# Update the package list
+sudo apt-get update -y
+
+# Install Nginx
+sudo apt-get install nginx -y
+
+# Overwrite the default contents of nginx index page
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
+
+# Update the default configuration file for Nginx 301 redirection
+config_301="location /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+sudo sed -i "/server_name _;/a $config_301" /etc/nginx/sites-available/default
+
+# Start Nginx Service
+sudo service nginx start

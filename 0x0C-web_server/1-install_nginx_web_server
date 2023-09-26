@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Install nginx web server and update it's index page
+
+# Update the package list
+sudo apt-get update -y
+
+# Install Nginx
+sudo apt-get install nginx -y
+
+# Overwrite the default contents of nginx index page
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
+
+# start nginx service
+sudo service nginx start
