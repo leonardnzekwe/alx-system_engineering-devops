@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Install and Configure nginx web server
+
+# Update the package list
+sudo apt update -y
+
+# Install Nginx
+sudo apt install nginx -y
+
+# Overwrite the default contents of nginx index page
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
+
+# Update the default configuration file for Nginx 301 redirection
+config_301="server_name _;\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+sudo sed -i "s|server_name _;|$config_301|" /etc/nginx/sites-available/default
+
+# Create custom 404 page
+sudo sh -c 'echo "Ceci n'\''est pas une page\n" > /var/www/html/custom_404.html'
+
+# Update the default configuration file for Nginx 404 handling
+config_404="server_name _;\n\terror_page 404 /custom_404.html;\n"
+sudo sed -i "s|server_name _;|$config_404|" /etc/nginx/sites-available/default
+
+# Configure Nginx so that its HTTP response contains a custom header
+custom_header="server_name _;\n\tadd_header X-Served-By \$hostname;\n"
+sudo sed -i "s|server_name _;|$custom_header|" /etc/nginx/sites-available/default
+
+# Confirm the configuration is ok/successful
+sudo nginx -t
+
+# Start/Reload Nginx service
+sudo service nginx start
