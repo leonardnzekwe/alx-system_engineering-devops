@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Fix the stack to start listening on port 80
+
+# WEB STACK DEBUGGING:
+# Delete the current /etc/nginx/sites-enabled/default file or Force update the link
+# Because it's not a symbolic link to /etc/nginx/sites-available/default
+# Hence it doesn't reflect the configuration in the site-available default file
+# For it uses a hardcoded configurations.
+# Then create a proper symbolic link and restart nginx
+
+# Forcefully update the symbolic link
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+
+# Check if the configuration is ok/successful
+sudo nginx -t
+
+# Restart nginx service to apply the changes
+sudo service nginx restart

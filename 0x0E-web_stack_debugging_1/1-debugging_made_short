@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Directly edit the default file, restarts the nginx service and kills the oldest nginx process
+sudo sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
+sudo service nginx restart
+sudo pkill -o nginx
