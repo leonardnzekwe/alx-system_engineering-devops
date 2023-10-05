@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# a Bash script that displays information about subdomains
+
+# Function to query DNS and display information
+query_dns() {
+	domain="$1"
+	subdomain="$2"
+
+	if [ -z "$subdomain" ]; then
+		subdomains=("www" "lb-01" "web-01" "web-02")
+	else
+		subdomains=("$subdomain")
+	fi
+
+	for sub in "${subdomains[@]}"; do
+		result=$(host "$sub.$domain" | awk '/has address/{print $NF}')
+
+		if [ -n "$result" ]; then
+			echo "The subdomain $sub is a A record and points to $result"
+		fi
+	done
+}
+
+# Check for required arguments
+if [ $# -lt 1 ]; then
+	echo "Usage: $0 <domain> [subdomain]"
+	exit 1
+fi
+
+# Call the query_dns function with provided arguments
+query_dns "$1" "$2"
