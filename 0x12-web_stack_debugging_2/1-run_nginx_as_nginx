@@ -5,7 +5,7 @@
 # You cannot use apt-get remove
 
 # Change the user in the Nginx configuration
-sed -i "s/user www-data;/user nginx;/" /etc/nginx/nginx.conf
+sed -i "s/#user www-data;/user nginx;/" /etc/nginx/nginx.conf
 
 # Ensure Nginx listens on all active IPs on port 8080
 sed -i "s/80/8080/g" /etc/nginx/sites-available/default
