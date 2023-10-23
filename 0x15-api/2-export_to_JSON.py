@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""API Request Module"""
+"""API Request and JSON Saving Module"""
 import json
 import requests
 from sys import argv
