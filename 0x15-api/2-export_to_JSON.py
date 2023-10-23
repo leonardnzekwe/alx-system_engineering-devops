@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""API Request and CSV Saving Module"""
-import csv
+"""API Request Module"""
+import json
 import requests
 from sys import argv
 
@@ -22,22 +22,20 @@ def main():
                 and todos_response.status_code == 200
             ):
                 employee = users_response.json()
-                employee_name = employee.get("username")
                 employee_tasks = todos_response.json()
-                employee_tasks_csv = [
-                    (
-                        task.get("userId"),
-                        employee_name,
-                        task.get("completed"),
-                        task.get("title"),
-                    )
+                employee_name = employee.get("username")
+                employee_done_tasks = [
+                    {
+                        "task": task.get("title"),
+                        "completed": task.get("completed"),
+                        "username": employee_name,
+                    }
                     for task in employee_tasks
                 ]
-                csv_filename = f"{id}.csv"
+                json_filename = f"{id}.json"
 
-                with open(csv_filename, mode="w", newline="") as csv_file:
-                    csv_writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
-                    csv_writer.writerows(employee_tasks_csv)
+                with open(json_filename, "w") as json_file:
+                    json.dump({id: employee_done_tasks}, json_file)
         except Exception as err:
             print(f"Error: {err}")
 
