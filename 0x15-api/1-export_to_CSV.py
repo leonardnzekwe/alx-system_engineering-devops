@@ -36,7 +36,7 @@ def main():
                 csv_filename = f"{id}.csv"
 
                 with open(csv_filename, mode="w", newline="") as csv_file:
-                    csv_writer = csv.writer(csv_file)
+                    csv_writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
                     csv_writer.writerows(employee_done_tasks)
         except Exception as err:
             print(f"Error: {err}")
