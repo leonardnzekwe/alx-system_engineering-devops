@@ -65,11 +65,13 @@ def count_words(subreddit, word_list, after=None, word_count=None):
 
 def print_results(word_count):
     """
-    Sort the word_count dictionary alphabetically (ascending)
+    Sort the word_count dictionary by count (descending)
+    and then alphabetically (ascending)
     """
-    # Sort the dictionary by keys (words)
-    sorted_word_count = dict(sorted(word_count.items()))
+    sorted_word_count = sorted(
+        word_count.items(), key=lambda item: (-item[1], item[0])
+    )
 
     # Print the results
-    for word, count in sorted_word_count.items():
+    for word, count in sorted_word_count:
         print(f"{word}: {count}")
