@@ -16,6 +16,10 @@ def top_ten(subreddit):
     # Make a GET request to the Reddit API with allow_redirects=False
     response = requests.get(url, headers=headers, allow_redirects=False)
 
+    # Check the response status code to determine if it's a redirect
+    if response.status_code == 302:
+        # If it's a redirect, print None and do not follow the redirect
+        print(None)
     # Check if the request was successful (status code 200)
     if response.status_code == 200:
         try:
@@ -26,14 +30,14 @@ def top_ten(subreddit):
             posts = data['data']['children']
             if not posts:
                 # No hot posts found in this subreddit
-                print("None")
+                print(None)
             else:
                 # Print the titles of the first 10 hot posts
                 for post in posts[:10]:
                     print(post['data']['title'])
         except Exception:
             # If the subreddit is invalid or there's an issue, print None
-            print("None")
+            print(None)
     else:
         # If the subreddit is invalid or there's an issue, print None
-        print("None")
+        print(None)
