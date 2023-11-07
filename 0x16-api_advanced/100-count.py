@@ -69,9 +69,9 @@ def print_results(word_count):
     and then alphabetically (ascending)
     """
     sorted_word_count = sorted(
-        word_count.items(), key=lambda item: (-item[1], item[0])
+        word_count.items(), key=lambda item: (-item[1], item[0].lower())
     )
 
     # Print the results
     for word, count in sorted_word_count:
-        print(f"{word}: {count}")
+        print(f"{word.lower()}: {count}")
