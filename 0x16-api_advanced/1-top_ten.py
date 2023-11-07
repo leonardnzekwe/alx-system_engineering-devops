@@ -26,14 +26,14 @@ def top_ten(subreddit):
             posts = data['data']['children']
             if not posts:
                 # No hot posts found in this subreddit
-                print(None)
+                print("None")
             else:
                 # Print the titles of the first 10 hot posts
                 for post in posts[:10]:
                     print(post['data']['title'])
         except Exception:
             # If the subreddit is invalid or there's an issue, print None
-            print(None)
+            print("None")
     else:
         # If the subreddit is invalid or there's an issue, print None
-        print(None)
+        print("None")
