@@ -21,7 +21,7 @@ def top_ten(subreddit):
         # If it's a redirect, print None and do not follow the redirect
         print(None)
     # Check if the request was successful (status code 200)
-    if response.status_code == 200:
+    elif response.status_code == 200:
         try:
             # If the request was successful (status code 200)
             # Parse the JSON response and print post titles
