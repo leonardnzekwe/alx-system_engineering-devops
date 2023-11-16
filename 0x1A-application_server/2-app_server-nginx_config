@@ -62,7 +62,7 @@ server {
 		try_files $uri $uri/ =404;
 	}
 	
-	location /airbnb-onepage/ {
+	location /airbnb-onepage {
                 proxy_pass http://localhost:5000/airbnb-onepage;
                 proxy_redirect off;
         }
