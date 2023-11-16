@@ -76,6 +76,11 @@ server {
         	proxy_pass http://localhost:5002/api/v1;
 	        proxy_redirect off;
 	}
+	
+	location /static/ {
+                alias /home/ubuntu/AirBnB_clone_v4/web_dynamic/static/;
+                proxy_redirect off;
+        }
 
 	# pass PHP scripts to FastCGI server
 	#
