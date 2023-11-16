@@ -77,10 +77,6 @@ server {
 	        proxy_redirect off;
 	}
 
-	location /static/ {
-                alias /home/ubuntu/AirBnB_clone_v4/web_dynamic/static/;
-        }
-
 	# pass PHP scripts to FastCGI server
 	#
 	#location ~ \.php$ {
